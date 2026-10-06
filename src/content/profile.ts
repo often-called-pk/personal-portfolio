@@ -23,7 +23,7 @@ export const profile: Profile = {
   ],
   // Placeholder until the user's own photo lands (spec 12.1).
   photo: {
-    src: '/images/projects/active-aero-lap-time/model_aeroMapSurface.png',
+    src: '/images/hero-placeholder.png',
     alt: 'Aero map surface from the active aero thesis',
   },
 };

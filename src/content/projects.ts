@@ -12,7 +12,17 @@ export const projects: Project[] = [
     role: 'Sole author',
     tools: ['MATLAB', 'CasADi', 'IPOPT', 'Simulink'],
     featured: true,
-    images: [],
+    cover: '/images/projects/active-aero-lap-time/cumulative-delta-barcelona.png',
+    images: [
+      {
+        src: '/images/projects/active-aero-lap-time/cumulative-delta-barcelona.png',
+        caption: 'Cumulative time delta along a Barcelona lap for two pairs of wing configurations.',
+      },
+      {
+        src: '/images/projects/active-aero-lap-time/aero-map-surface.png',
+        caption: 'Front and rear axle lift coefficient against speed and wing angle.',
+      },
+    ],
     overview:
       "For my MSc thesis with Zenvo Automotive I extended an established minimum-lap-time optimal-control framework with independently controlled front and rear wings and four-wheel torque vectoring. The aerodynamics come from the partner's CFD wing-angle sweeps and ride-height map, resolved into one smooth, differentiable model. I framed the result as implementability rather than headline gain.",
     contributions: [
@@ -37,7 +47,21 @@ export const projects: Project[] = [
     role: 'Chief Engineer, 9-person team',
     tools: ['IPG CarMaker', 'Simulink', 'Python', 'CAN', 'EKF', 'RLS'],
     featured: false,
-    images: [],
+    cover: '/images/projects/utac-2026-kia-niro/efficiency-map.png',
+    images: [
+      {
+        src: '/images/projects/utac-2026-kia-niro/efficiency-map.png',
+        caption: "Representative traction motor efficiency map, scaled to the Kia Niro EV's peak torque and power.",
+      },
+      {
+        src: '/images/projects/utac-2026-kia-niro/friction-curve.png',
+        caption: 'Friction against longitudinal slip on a 0.7-friction surface, with a linear slip-slope fit.',
+      },
+      {
+        src: '/images/projects/utac-2026-kia-niro/friction-estimate.png',
+        caption: 'Friction estimator output against the actual road friction of 0.5 over a test run.',
+      },
+    ],
     overview:
       "I led the 9-person Cranfield team as Chief Engineer at the UTAC Challenge 2026 in Paris, working on state estimation for a Kia Niro EV. The CarMaker vehicle model draws on the team's own characterisation work (track testing, drive-cycle analysis, a custom PMSM powertrain and HV battery definition) and was checked against the team's measured cornering and slalom runs. Its road models cover the real Milton Keynes to Cranfield route and the slalom and steady-state cornering manoeuvres used for validation.",
     contributions: [
@@ -62,7 +86,13 @@ export const projects: Project[] = [
     role: 'Sole developer, own initiative',
     tools: ['Flask', 'PostgreSQL', 'Plotly', 'Docker', 'nginx', 'Azure'],
     featured: false,
-    images: [],
+    cover: '/images/projects/indian-f4-telemetry-platform/dashboard-traces.png',
+    images: [
+      {
+        src: '/images/projects/indian-f4-telemetry-platform/dashboard-traces.png',
+        caption: 'Speed, time delta, throttle and RPM for four laps on a common distance axis.',
+      },
+    ],
     overview:
       'Built on my own initiative and still run by me alone, this is the application Indian Formula 4 race engineers use at the circuit. With it, lap-time delta between drivers can be attributed corner by corner.',
     contributions: [
@@ -137,7 +167,12 @@ export const projects: Project[] = [
     role: 'Sole developer',
     tools: ['Python', 'CasADi', 'IPOPT', 'PySide6', 'PyInstaller'],
     featured: false,
-    images: [],
+    images: [
+      {
+        src: '/images/projects/fullmodelsim-python/gui.png',
+        caption: 'Desktop front end: circuit, aero configuration, tyre model and solver start settings.',
+      },
+    ],
     overview:
       'FullModelSim is a minimum-lap-time solver: a 23-state vehicle model posed as an optimal-control problem and solved with IPOPT through CasADi. I ported it from MATLAB to object-oriented Python and wrapped it in a PySide6 desktop application.',
     contributions: [
