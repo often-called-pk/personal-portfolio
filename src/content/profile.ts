@@ -48,6 +48,13 @@ export const ui = {
   projectsTitle: 'Selected projects',
   moreProjects: 'More projects',
   viewProject: 'View project',
+  allProjects: 'All projects',
+  overviewTitle: 'Overview',
+  contributionsTitle: 'Key contributions',
+  resultTitle: 'Result',
+  toolsTitle: 'Tools and skills',
+  prevProject: 'Previous project',
+  nextProject: 'Next project',
   experienceTitle: 'Experience',
   experienceGroups: {
     motorsport: 'Motorsport',
