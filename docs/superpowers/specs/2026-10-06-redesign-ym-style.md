@@ -1,6 +1,6 @@
 # Redesign spec: Pit Wall restaged toward the YM reference
 
-2026-10-06. Owner Prashant Kumar. Status: proposal, waits on owner answers (section 12). Build nothing before "execute".
+2026-10-06. Owner Prashant Kumar. Status: approved 2026-10-06 (section 12 all yes), built on `redesign-ym`; build rulings in section 13.
 Style: caveman + ponytail. Facts only. Base: `2026-10-05-portfolio-site-design.md`; every rule not named here stands.
 Branch `redesign-ym` from main 5aa14ff. Evidence: 42 section screenshots + `compare.html` in the job scratch folder.
 
@@ -41,7 +41,7 @@ Values unchanged (`src/app/globals.css`). New usages only.
 | muted | #9A9A94 | #5F6068 | stat labels, step text |
 | line | #24262B | #DCDCD6 | stage borders, method rail |
 | accent | #E0A040 | #9A6214 | P1 stat card fill: only solid accent surface besides buttons |
-| on-accent | #0C0D10 | #FFFFFF | P1 card text, label at /80 |
+| on-accent | #0C0D10 | #FFFFFF | P1 card value and label, full strength (/80 failed AA in light) |
 
 - Accent stays amber. Reference treatment borrowed once: accent as a solid surface (its orange stat card) = our P1 card. Hue not better: vermilion + teal = two accents (breaks colour lock); amber already AA (on-accent 8.6:1 dark, 5.1:1 light).
 - Radius 4 px locked (`rounded`). No gradients, glows, shadows, tilt (Q4).
@@ -82,8 +82,8 @@ Stage (written `{stage}` below) = `rounded border border-line bg-card p-6 md:p-1
 | contact | inverted dark footer, mono kicker, pill CTAs | h2 30 px, email, buttons | adjust: stage + closing h2 72 px |
 
 ### 6.1 Nav `src/components/nav.tsx`
-- `<header>`: `pointer-events-none sticky top-0 z-40 px-3 pt-3 md:px-6`.
-- Bar (replaces inner div): `pointer-events-auto relative mx-auto flex h-14 max-w-6xl items-center justify-between gap-3 rounded border border-line bg-bg/80 px-3 backdrop-blur md:px-5`.
+- `<header>`: `pointer-events-none sticky top-0 z-40 px-2 pt-3 sm:px-3 md:px-6`.
+- Bar (replaces inner div): `pointer-events-auto relative mx-auto flex h-14 max-w-6xl items-center justify-between gap-3 rounded border border-line bg-bg/90 px-2 backdrop-blur sm:px-3 md:px-5`. Phone padding `px-2` keeps the name on one line from 360 px; `/90` keeps muted links AA over white plots.
 - Sheet moves inside the bar: `absolute inset-x-0 top-full mt-2 rounded border border-line bg-bg lg:hidden`. Links, CV button, toggle, Escape logic unchanged.
 - `globals.css`: `scroll-padding-top: 5rem`. Header 68 px total, under the 72 px cap. No scroll-state morph.
 
@@ -97,18 +97,18 @@ Stage (written `{stage}` below) = `rounded border border-line bg-card p-6 md:p-1
 ### 6.3 Metrics `src/components/sections/metrics.tsx`
 - `<Stagger inView className="mx-auto max-w-6xl px-4 md:px-8">` around `<ul className="grid grid-cols-3 gap-2 sm:gap-4">`; each `<li>` content in `<StaggerItem>`.
 - li: `rounded border p-3 sm:p-6 lg:p-8`, plus i = 0 `border-accent bg-accent text-on-accent`, else `border-line bg-card`.
-- Value: stat class + `<CountUp>`. Label: `mt-3 font-mono text-xs leading-snug sm:mt-6 sm:text-sm`, plus i = 0 `text-on-accent/80`, else `text-muted`.
+- Value: stat class + `<CountUp>`. Label: `mt-3 break-words font-mono text-xs leading-snug sm:mt-6 sm:text-sm`, plus i = 0 `text-on-accent`, else `text-muted`.
 - Three columns at every width (base-spec phone fold rule stays).
 
 ### 6.4 About `src/components/sections/about.tsx`
 - Wrapper, then `<Reveal className="{stage}">` holding `grid gap-10 lg:grid-cols-12 lg:gap-12`.
-- Left `lg:col-span-7`: h2, paragraphs `mt-10 flex max-w-[65ch] flex-col gap-4`.
-- Right `flex flex-col gap-4 lg:col-span-5`: photo frame `relative aspect-[4/5] w-full max-w-sm overflow-hidden rounded border border-line`, `<Image fill sizes="(min-width:640px) 24rem, calc(100vw - 5rem)" className="object-cover">` (lazy); card `rounded border border-line bg-bg p-5` with card label `ui.nowLabel` + `<p className="mt-2">` `profile.now`; second card same box, `text-muted`, `profile.availability`.
-- Mobile: one column, same order. Forced label edit: `ui.nowLabel` 'Now:' to 'Now'.
+- Left `lg:col-span-7`: h2, paragraphs `mt-10 flex max-w-[65ch] flex-col gap-4 md:mt-14`, then `mt-8 grid gap-4 sm:grid-cols-2` with card `rounded border border-line bg-bg p-5` (card label `ui.nowLabel` + `<p className="mt-2">` `profile.now`) and a second card, same box, `text-muted`, `profile.availability`.
+- Right `lg:col-span-5`: portrait only, frame `relative aspect-[4/5] w-full max-w-sm overflow-hidden rounded border border-line`, `<Image fill sizes="(min-width:640px) 24rem, calc(100vw - 5rem)" className="object-cover">` (lazy).
+- Mobile: one column, same order (portrait last). Forced label edit: `ui.nowLabel` 'Now:' to 'Now'.
 
 ### 6.5 Method (new, Q3)
 - Files: `src/content/method.ts` exports `method: MethodStep[]`; `types.ts` adds `export type MethodStep = { title: string; text: string };`; `ui.methodTitle: 'How I work'`; `src/components/sections/method.tsx` (server); `page.tsx` renders `<Method />` after `<About />`. No nav entry.
-- Layout: wrapper; `<Reveal>` h2; `<Stagger inView>` around `<ol className="mt-10 grid grid-cols-1 gap-8 md:mt-14 md:grid-cols-2 lg:grid-cols-4 lg:gap-6">`; each li holds `<StaggerItem className="h-full border-t border-line pt-6">` with h3 step + `<p className="mt-3 text-muted">`. Rail, not cards, no numbers.
+- Layout: wrapper; `<Reveal>` h2; `<Stagger inView>` around `<ol role="list" className="mt-10 grid grid-cols-1 gap-8 md:mt-14 md:grid-cols-2 lg:grid-cols-4 lg:gap-6">` (role keeps list semantics in Safari); each li holds `<StaggerItem className="h-full border-t border-line pt-6">` with h3 step + `<p className="mt-3 text-muted">`. Rail, not cards, no numbers.
 - Draft copy, each clause from existing content (source in brackets); owner fact-checks:
   1. Measure the car: "Static, dynamic and track characterisation first, as in the UTAC Kia Niro test plan." [utac contributions 1]
   2. Model it: "Vehicle models built from that data: IPG CarMaker for UTAC, a 23-state optimal-control model for the thesis." [utac contributions 2, fullmodelsim overview]
@@ -195,10 +195,18 @@ New checks (headless captures at 390x844 and 1440x900, dark and light):
 8. `git diff main --stat -- src/content` lists only `method.ts`, `types.ts`, `profile.ts`.
 9. No U+2014 / U+2013 in any changed file.
 
-## 12. Open questions (answer with "execute")
+## 12. Open questions (answered 2026-10-06: all yes; the four How I work lines approved as written)
 
 1. Theme: reference is light cream + serif. Keep Pit Wall dark/amber/Archivo, borrow composition only? Recommend yes. A light-cream version needs its own spec and an explicit override of taste 4.1 / 4.2.
 2. Hero photo: move the portrait into About, give the h1 the full width at 72 px? Recommend yes: bigger type, LCP becomes text, the placeholder leaves the hero. Else photo stays, h1 stays 48 px.
 3. "How I work" rail with the 4 lines in 6.5? Recommend yes, after your fact-check. Else skip; 10 sections stay.
 4. Radius: keep 4 px everywhere? Recommend yes (identity, differentiation). Else 16 px cards + pill buttons like the reference: token change across 12 files.
 5. Nav: floating contained bar? Recommend yes. Else keep the full-width sticky bar.
+
+## 13. Build rulings (2026-10-06, already folded into sections 4 to 6)
+
+- Nav phone padding `px-2` (name wrapped at 360 px with `px-3`); bar `bg-bg/90` (muted links 3.8:1 over white plots at /80).
+- About cards under the copy, portrait alone on the right (empty band at lg, mismatched widths at 768).
+- P1 label full `text-on-accent` (3.9:1 in light at /80); stat labels `break-words` (overflow at 320 px).
+- Method `ol role="list"` (Safari list semantics). Detail page hover matches the cards (4 px, 300 ms).
+- Accepted: 4 h1 lines and a wrapped name at 320 px only.
