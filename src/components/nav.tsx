@@ -53,7 +53,7 @@ export function Nav() {
                 <li key={item.href}>
                   <a
                     href={item.href}
-                    className="font-mono text-sm text-muted transition-[color] hover:text-fg"
+                    className="inline-flex min-h-11 items-center font-mono text-sm text-muted transition-[color] hover:text-fg"
                   >
                     {item.label}
                   </a>

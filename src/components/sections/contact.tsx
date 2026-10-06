@@ -11,7 +11,7 @@ export function Contact() {
   return (
     <section id="contact" className="mx-auto max-w-6xl px-4 py-24 md:px-8 md:py-32">
       <Reveal className="rounded border border-line bg-card p-6 md:p-10 lg:p-14">
-        <h2 className="text-balance text-4xl font-extrabold leading-[0.95] tracking-[-0.04em] md:text-6xl lg:text-7xl">{ui.contactTitle}</h2>
+        <h2 className="text-balance text-3xl font-extrabold leading-[0.95] tracking-[-0.04em] md:text-5xl lg:text-6xl xl:text-7xl">{ui.contactTitle}</h2>
         {/* min-h-11 holds the row's height while Email renders nothing before hydration. */}
         <div className="mt-10 min-h-11 md:mt-12">
           <Email />

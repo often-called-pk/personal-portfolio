@@ -7,7 +7,7 @@ export function Metrics() {
     <Stagger inView className="mx-auto max-w-6xl px-4 md:px-8">
       {/* Three columns at every width: stacked, two of the three facts would drop below the fold on
           phones. The first card (P1) is the page's one solid accent surface besides buttons. */}
-      <ul className="grid grid-cols-3 gap-2 sm:gap-4">
+      <ul role="list" className="grid grid-cols-3 gap-2 sm:gap-4">
         {profile.metrics.map((m, i) => (
           <li key={m.label} className="min-w-0">
             <StaggerItem
