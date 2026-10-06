@@ -1,0 +1,73 @@
+import type { Experience, Link, Profile } from './types';
+
+export const profile: Profile = {
+  name: 'Prashant Kumar',
+  email: 'pk2559896@gmail.com',
+  eyebrow: 'MSc Automotive Mechatronics, Cranfield',
+  headline: 'Vehicle dynamics, control and telemetry, proven trackside.',
+  sub: 'Thesis on active aero in lap-time simulation with Zenvo. Three seasons trackside across Indian F4, British GT Cup and BRSCC.',
+  links: [
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/prashantkr97' },
+    { label: 'GitHub', href: 'https://github.com/often-called-pk' },
+  ],
+  about: [
+    'I studied Electrical and Electronics Engineering at Manipal, where I worked on the electrical subsystem, wiring harness and sensor integration for the Team Manipal Racing Baja SAE car. Four and a half years in analytics followed at Merkle Sokrati and Publicis, writing SQL and Python for clients across time zones. Indian F4 pulled me trackside in 2024, and I moved to the UK to work in motorsport.',
+    'I have just finished an MSc in Automotive Mechatronics at Cranfield, with a thesis on active aerodynamics for Zenvo Automotive, and I spend race weekends with British GT Cup and BRSCC teams.',
+  ],
+  now: 'Tyre Performance Engineer at Race Car Consultants and Junior Mechanic and Data at SVG Motorsport, both weekend contracts.',
+  availability: 'Based in Milton Keynes, UK. UK Graduate visa to Jan 2029. Full UK driving licence. Open to relocation.',
+  metrics: [
+    { value: 'P1', label: 'UTAC Challenge 2026, Chief Engineer' },
+    { value: '30', label: 'interns trained on vehicle systems' },
+    { value: '3', label: 'seasons trackside: Indian F4, British GT Cup, BRSCC' },
+  ],
+  // Placeholder until the user's own photo lands (spec 12.1).
+  photo: {
+    src: '/images/hero-placeholder.png',
+    alt: 'Placeholder portrait panel with the initials PK',
+  },
+};
+
+// Every UI string lives here, never inline in components. Later tasks add keys.
+export const ui = {
+  nav: [
+    { label: 'About', href: '/#about' },
+    { label: 'Projects', href: '/#projects' },
+    { label: 'Experience', href: '/#experience' },
+    { label: 'Skills', href: '/#skills' },
+    { label: 'Contact', href: '/#contact' },
+  ] satisfies Link[],
+  cv: 'Download CV',
+  cvFilename: 'Prashant-Kumar-CV.pdf',
+  viewProjects: 'View projects',
+  getInTouch: 'Get in touch',
+  copyEmail: 'Copy email address',
+  emailCopied: 'Email address copied',
+  menu: 'Menu',
+  aboutTitle: 'About',
+  nowLabel: 'Now:',
+  projectsTitle: 'Selected projects',
+  moreProjects: 'More projects',
+  viewProject: 'View project',
+  allProjects: 'All projects',
+  overviewTitle: 'Overview',
+  contributionsTitle: 'Key contributions',
+  resultTitle: 'Result',
+  toolsTitle: 'Tools and skills',
+  prevProject: 'Previous project',
+  nextProject: 'Next project',
+  experienceTitle: 'Experience',
+  experienceGroups: {
+    motorsport: 'Motorsport',
+    analytics: 'Analytics and product',
+  } satisfies Record<Experience['group'], string>,
+  skillsTitle: 'Skills',
+  educationTitle: 'Education',
+  achievementsTitle: 'Achievements',
+  hobbiesTitle: 'Off the clock',
+  contactTitle: "Let's talk about the next car.",
+  footer: 'Built with Next.js',
+  notFoundTitle: 'Page not found',
+  notFoundText: 'This page does not exist, or it has moved.',
+  notFoundHome: 'Back to home',
+};
