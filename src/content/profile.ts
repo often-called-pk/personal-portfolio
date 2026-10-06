@@ -1,4 +1,4 @@
-import type { Link, Profile } from './types';
+import type { Experience, Link, Profile } from './types';
 
 export const profile: Profile = {
   name: 'Prashant Kumar',
@@ -45,4 +45,18 @@ export const ui = {
   menu: 'Menu',
   aboutTitle: 'About',
   nowLabel: 'Now:',
+  projectsTitle: 'Selected projects',
+  moreProjects: 'More projects',
+  viewProject: 'View project',
+  experienceTitle: 'Experience',
+  experienceGroups: {
+    motorsport: 'Motorsport',
+    analytics: 'Analytics and product',
+  } satisfies Record<Experience['group'], string>,
+  skillsTitle: 'Skills',
+  educationTitle: 'Education',
+  achievementsTitle: 'Achievements',
+  hobbiesTitle: 'Off the clock',
+  contactTitle: "Let's talk about the next car.",
+  footer: 'Built with Next.js',
 };
