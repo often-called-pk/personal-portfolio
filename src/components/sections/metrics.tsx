@@ -17,7 +17,7 @@ export function Metrics() {
                 <CountUp value={m.value} />
               </p>
               <p
-                className={`mt-3 font-mono text-xs leading-snug sm:mt-6 sm:text-sm ${i === 0 ? 'text-on-accent/80' : 'text-muted'}`}
+                className={`mt-3 break-words font-mono text-xs leading-snug sm:mt-6 sm:text-sm ${i === 0 ? 'text-on-accent' : 'text-muted'}`}
               >
                 {m.label}
               </p>

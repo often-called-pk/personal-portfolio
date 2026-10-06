@@ -13,7 +13,8 @@ export function Method() {
         </h2>
       </Reveal>
       <Stagger inView>
-        <ol className="mt-10 grid grid-cols-1 gap-8 md:mt-14 md:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+        {/* role="list": Safari drops list semantics when list-style is none, and the ol carries the step order. */}
+        <ol role="list" className="mt-10 grid grid-cols-1 gap-8 md:mt-14 md:grid-cols-2 lg:grid-cols-4 lg:gap-6">
           {method.map((step) => (
             <li key={step.title} className="min-w-0">
               <StaggerItem className="h-full border-t border-line pt-6">
