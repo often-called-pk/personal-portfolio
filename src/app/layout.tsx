@@ -33,6 +33,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${archivo.variable} ${jetbrains.variable}`}
     >
       <body className="font-sans antialiased">
+        {/* Motion prerenders Reveal and Stagger blocks at opacity 0 and shows them once JS runs.
+            Without JS they would stay hidden, so noscript cancels the inline style. */}
+        <noscript>
+          <style>{'[style*="opacity:0"]{opacity:1!important;transform:none!important}'}</style>
+        </noscript>
         <Nav />
         {children}
       </body>

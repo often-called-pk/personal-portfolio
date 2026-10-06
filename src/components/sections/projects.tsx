@@ -21,9 +21,16 @@ export function Projects() {
       </Reveal>
       <Reveal className="mt-16">
         <h3 className="text-xl font-bold">{ui.moreProjects}</h3>
-        <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {more.map((p) => (
-            <ProjectCard key={p.slug} project={p} heading="h4" />
+        {/* One column below lg. From lg a 6-column grid: the first three cards span 2 and the last
+            two span 3, so neither row has a hole and each row's cards share one height. */}
+        <div className="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-6">
+          {more.map((p, i) => (
+            <ProjectCard
+              key={p.slug}
+              project={p}
+              heading="h4"
+              className={i < 3 ? 'lg:col-span-2' : 'lg:col-span-3'}
+            />
           ))}
         </div>
       </Reveal>

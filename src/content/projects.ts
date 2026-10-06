@@ -43,7 +43,7 @@ export const projects: Project[] = [
       "Overall winners at UTAC Challenge 2026. Built the Kia Niro EV model in IPG CarMaker and took the team's mass, slope, battery state-of-charge and tyre-road friction estimators through staged test runs.",
     year: '2026',
     category: 'Competition',
-    context: 'Cranfield GDP, UTAC Challenge 2026',
+    context: 'Cranfield group design project, UTAC Challenge 2026',
     role: 'Chief Engineer, 9-person team',
     tools: ['IPG CarMaker', 'Simulink', 'Python', 'CAN', 'EKF', 'RLS'],
     featured: false,
@@ -63,7 +63,7 @@ export const projects: Project[] = [
       },
     ],
     overview:
-      "I led the 9-person Cranfield team as Chief Engineer at the UTAC Challenge 2026 in Paris, working on state estimation for a Kia Niro EV. The CarMaker vehicle model draws on the team's own characterisation work (track testing, drive-cycle analysis, a custom PMSM powertrain and HV battery definition) and was checked against the team's measured cornering and slalom runs. Its road models cover the real Milton Keynes to Cranfield route and the slalom and steady-state cornering manoeuvres used for validation.",
+      "I led the 9-person Cranfield team as Chief Engineer at the UTAC Challenge 2026 in Paris, working on state estimation for a Kia Niro EV. The CarMaker vehicle model draws on the team's own characterisation work (track testing, drive-cycle analysis, a custom PMSM powertrain and HV battery definition) and was checked against the team's measured cornering and slalom runs. The CarMaker road models cover the real Milton Keynes to Cranfield route and the slalom and steady-state cornering manoeuvres used for validation.",
     contributions: [
       'Led the 9-person team as Chief Engineer: ran the weekly cadence, secured test-facility and dynamometer access, set up the shared GitHub repository, and built and ran the test plan (static, dynamic and track characterisation).',
       "Built the Kia Niro EV model in IPG CarMaker from the team's own characterisation work and checked it against the team's measured cornering and slalom runs.",

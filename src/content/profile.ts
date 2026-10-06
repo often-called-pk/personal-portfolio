@@ -15,7 +15,7 @@ export const profile: Profile = {
     'I have just finished an MSc in Automotive Mechatronics at Cranfield, with a thesis on active aerodynamics for Zenvo Automotive, and I spend race weekends with British GT Cup and BRSCC teams.',
   ],
   now: 'Tyre Performance Engineer at Race Car Consultants and Junior Mechanic and Data at SVG Motorsport.',
-  availability: 'UK Graduate visa to Jan 2029. Full UK driving licence. Open to relocation.',
+  availability: 'Based in Milton Keynes, UK. UK Graduate visa to Jan 2029. Full UK driving licence. Open to relocation.',
   metrics: [
     { value: 'P1', label: 'UTAC Challenge 2026, Chief Engineer' },
     { value: '30', label: 'interns trained on vehicle systems' },
@@ -38,6 +38,7 @@ export const ui = {
     { label: 'Contact', href: '/#contact' },
   ] satisfies Link[],
   cv: 'Download CV',
+  cvFilename: 'Prashant-Kumar-CV.pdf',
   viewProjects: 'View projects',
   getInTouch: 'Get in touch',
   copyEmail: 'Copy email address',
@@ -66,4 +67,7 @@ export const ui = {
   hobbiesTitle: 'Off the clock',
   contactTitle: "Let's talk about the next car.",
   footer: 'Built with Next.js',
+  notFoundTitle: 'Page not found',
+  notFoundText: 'This page does not exist, or it has moved.',
+  notFoundHome: 'Back to home',
 };

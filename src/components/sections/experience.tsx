@@ -26,7 +26,7 @@ export function Experience() {
                       <p className="mt-1 text-muted">
                         {e.company}, {e.location}
                       </p>
-                      <ul className="mt-3 list-disc space-y-2 pl-5 marker:text-muted">
+                      <ul className="mt-3 max-w-[65ch] list-disc space-y-2 pl-5 marker:text-muted">
                         {e.bullets.map((b) => (
                           <li key={b}>{b}</li>
                         ))}

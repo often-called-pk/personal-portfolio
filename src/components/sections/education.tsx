@@ -15,7 +15,7 @@ export function Education() {
               </p>
               <h3 className="mt-3 min-w-0 break-words text-lg font-bold leading-snug">{e.school}</h3>
               <p className="mt-1 font-semibold">{e.degree}</p>
-              <div className="mt-4 flex flex-col gap-3 text-muted">
+              <div className="mt-4 flex max-w-[65ch] flex-col gap-3 text-muted">
                 {e.lines.map((line) => (
                   <p key={line}>{line}</p>
                 ))}

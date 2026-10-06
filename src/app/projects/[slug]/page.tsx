@@ -115,11 +115,12 @@ export default async function Page({ params }: Props) {
               <figure key={img.src}>
                 {/* The plots are axis-labelled: contain, never crop. Ratios run from 1.2:1 to 2.5:1
                     and 16:9 is the middle, so no image is letterboxed hard in either direction.
-                    4:3 below md keeps the squarest plot from shrinking to a thumbnail on phones. */}
+                    4:3 below md keeps the squarest plot from shrinking to a thumbnail on phones.
+                    alt is empty on purpose: the figcaption below already names the figure. */}
                 <div className="relative aspect-[4/3] rounded border border-line bg-card md:aspect-video">
                   <Image
                     src={img.src}
-                    alt={img.caption}
+                    alt=""
                     fill
                     sizes={SIZES}
                     fetchPriority={k === 0 ? 'high' : undefined}

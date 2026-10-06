@@ -16,19 +16,21 @@ export function ProjectCard({
   tall = false,
   highPriority = false,
   heading: Heading = 'h3',
+  className,
 }: {
   project: Project;
   image?: boolean;
   tall?: boolean;
   highPriority?: boolean;
   heading?: 'h3' | 'h4';
+  className?: string;
 }) {
   const cover = image ? project.cover : undefined;
   const copy = tall ? 'text-base' : 'text-sm';
   return (
     <Link
       href={`/projects/${project.slug}`}
-      className={`group flex flex-col overflow-hidden rounded border border-line bg-card transition-[translate,scale,border-color] duration-200 hover:border-accent motion-safe:hover:-translate-y-[2px] motion-safe:active:scale-[0.98]${tall ? ' lg:row-span-2' : ''}`}
+      className={`group flex flex-col overflow-hidden rounded border border-line bg-card transition-[translate,scale,border-color] duration-200 hover:border-accent motion-safe:hover:-translate-y-[2px] motion-safe:active:scale-[0.98]${tall ? ' lg:row-span-2' : ''}${className ? ` ${className}` : ''}`}
     >
       {cover ? (
         // The covers are axis-labelled plots and a dashboard: contain, never crop. The tall card
