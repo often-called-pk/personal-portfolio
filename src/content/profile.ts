@@ -40,4 +40,6 @@ export const ui = {
   cv: 'Download CV',
   viewProjects: 'View projects',
   getInTouch: 'Get in touch',
+  copyEmail: 'Copy email address',
+  emailCopied: 'Email address copied',
 };
