@@ -5,7 +5,7 @@ export const projects: Project[] = [
     slug: 'active-aero-lap-time',
     title: 'Implementable active aerodynamics in minimum lap time simulation',
     summary:
-      'Extended a minimum-lap-time framework with independent front and rear wings and four-wheel torque vectoring. The free wing recovers 0.24-0.43 % of a lap over the best static setting; the thesis tests how much survives implementation.',
+      'Extended a minimum-lap-time framework with independent front and rear wings and four-wheel torque vectoring. The free wing recovers 0.24-0.43 % of a lap over the best swept static setting; the thesis tests how much survives implementation.',
     year: '2026',
     category: 'Thesis',
     context: 'MSc thesis, Zenvo Automotive',
@@ -17,10 +17,6 @@ export const projects: Project[] = [
       {
         src: '/images/projects/active-aero-lap-time/cumulative-delta-barcelona.png',
         caption: 'Cumulative time delta along a Barcelona lap for two pairs of wing configurations.',
-      },
-      {
-        src: '/images/projects/active-aero-lap-time/aero-map-surface.png',
-        caption: 'Front and rear axle lift coefficient against speed and wing angle.',
       },
     ],
     overview:
@@ -76,6 +72,37 @@ export const projects: Project[] = [
     links: [],
   },
   {
+    slug: 'fullmodelsim-python',
+    title: 'FullModelSim: 23-state vehicle model and solver in Python',
+    summary:
+      'A 23-state vehicle model and optimal-control solver ported from MATLAB to object-oriented Python, wrapped in a PySide6 desktop app and packaged as a standalone Windows executable.',
+    year: '2026',
+    category: 'Personal',
+    context: 'Personal, MATLAB-to-Python port',
+    role: 'Sole developer',
+    tools: ['Python', 'CasADi', 'IPOPT', 'PySide6', 'PyInstaller'],
+    featured: false,
+    cover: '/images/projects/fullmodelsim-python/gui.png',
+    images: [
+      {
+        src: '/images/projects/fullmodelsim-python/gui.png',
+        caption: 'Desktop front end: circuit, aero configuration, tyre model and solver start settings.',
+      },
+    ],
+    overview:
+      'FullModelSim is a minimum-lap-time solver: a 23-state vehicle model posed as an optimal-control problem and solved with IPOPT through CasADi. I ported it from MATLAB to object-oriented Python and wrapped it in a PySide6 desktop application.',
+    contributions: [
+      'Ported the 23-state vehicle model and optimal-control solver, about 5,600 lines of Python in all including 15 test scripts.',
+      'Ran the solver out of process behind a JSON and subprocess interface with live log streaming into the GUI, so a multi-minute solve never blocks or crashes the UI.',
+      'Integrated the Coin-HSL MA57 and MA97 linear solvers into IPOPT behind a pre-flight load probe with automatic MUMPS fallback; benchmarked about 4-5x lower per-iteration linear-solve cost than MUMPS.',
+      'Root-caused an MA57 convergence stall to a missing scaling option and fixed it by enabling MC64 scaling.',
+      'Added a PyInstaller runtime hook for the CasADi DLL search path and bundled the HSL libraries into the build.',
+    ],
+    result:
+      'The port solves the full 23-state problem with Coin-HSL linear solvers at about 4-5x lower per-iteration linear-solve cost than MUMPS, and is packaged as a standalone Windows executable.',
+    links: [],
+  },
+  {
     slug: 'indian-f4-telemetry-platform',
     title: 'Indian F4 telemetry platform (indianf4championship.com)',
     summary:
@@ -86,13 +113,7 @@ export const projects: Project[] = [
     role: 'Sole developer, own initiative',
     tools: ['Flask', 'PostgreSQL', 'Plotly', 'Docker', 'nginx', 'Azure'],
     featured: false,
-    cover: '/images/projects/indian-f4-telemetry-platform/dashboard-traces.png',
-    images: [
-      {
-        src: '/images/projects/indian-f4-telemetry-platform/dashboard-traces.png',
-        caption: 'Speed, time delta, throttle and RPM for four laps on a common distance axis.',
-      },
-    ],
+    images: [],
     overview:
       'Built on my own initiative and still run by me alone, this is the application Indian Formula 4 race engineers use at the circuit. With it, lap-time delta between drivers can be attributed corner by corner.',
     contributions: [
@@ -104,7 +125,7 @@ export const projects: Project[] = [
     ],
     result:
       "It removed the engineers' dependence on the championship's proprietary viewer and became the training tool for 30 interns.",
-    links: [{ label: 'Live site', href: 'https://indianf4championship.com' }],
+    links: [],
   },
   {
     slug: 'indian-f4-2025-dashboard',
@@ -114,10 +135,16 @@ export const projects: Project[] = [
     year: '2025',
     category: 'Personal',
     context: 'Indian F4 Championship',
-    role: 'Sole developer',
+    role: 'Sole developer, AI-assisted',
     tools: ['React', 'TypeScript', 'Vite', 'shadcn/ui', 'AWS Lambda', 'S3', 'API Gateway'],
     featured: false,
-    images: [],
+    cover: '/images/projects/indian-f4-2025-dashboard/dashboard-traces.png',
+    images: [
+      {
+        src: '/images/projects/indian-f4-2025-dashboard/dashboard-traces.png',
+        caption: 'Speed, time delta, throttle and RPM for four laps on a common distance axis, 2025 season build.',
+      },
+    ],
     overview:
       'A serverless web app that compares drivers across laps with synchronised chart cursors, delta time and a GPS track map. Behind the front end, API Gateway and Lambda serve processed telemetry, and files uploaded to S3 trigger processing into DynamoDB.',
     contributions: [
@@ -157,36 +184,6 @@ export const projects: Project[] = [
     links: [],
   },
   {
-    slug: 'fullmodelsim-python',
-    title: 'FullModelSim: 23-state vehicle model and solver in Python',
-    summary:
-      'A 23-state vehicle model and optimal-control solver ported from MATLAB to object-oriented Python, wrapped in a PySide6 desktop app and packaged as a standalone Windows executable.',
-    year: '2026',
-    category: 'Personal',
-    context: 'Personal, MATLAB-to-Python port',
-    role: 'Sole developer',
-    tools: ['Python', 'CasADi', 'IPOPT', 'PySide6', 'PyInstaller'],
-    featured: false,
-    images: [
-      {
-        src: '/images/projects/fullmodelsim-python/gui.png',
-        caption: 'Desktop front end: circuit, aero configuration, tyre model and solver start settings.',
-      },
-    ],
-    overview:
-      'FullModelSim is a minimum-lap-time solver: a 23-state vehicle model posed as an optimal-control problem and solved with IPOPT through CasADi. I ported it from MATLAB to object-oriented Python and wrapped it in a PySide6 desktop application.',
-    contributions: [
-      'Ported the 23-state vehicle model and optimal-control solver, about 5,600 lines of Python in all including 15 test scripts.',
-      'Ran the solver out of process behind a JSON and subprocess interface with live log streaming into the GUI, so a multi-minute solve never blocks or crashes the UI.',
-      'Integrated the Coin-HSL MA57 and MA97 linear solvers into IPOPT behind a pre-flight load probe with automatic MUMPS fallback; benchmarked about 4-5x lower per-iteration linear-solve cost than MUMPS.',
-      'Root-caused an MA57 convergence stall to a missing scaling option and fixed it by enabling MC64 scaling.',
-      'Added a PyInstaller runtime hook for the CasADi DLL search path and bundled the HSL libraries into the build.',
-    ],
-    result:
-      'The port solves the full 23-state problem with Coin-HSL linear solvers at about 4-5x lower per-iteration linear-solve cost than MUMPS, and is packaged as a standalone Windows executable.',
-    links: [],
-  },
-  {
     slug: 'active-aero-controller-codegen',
     title: 'Active-aero controller with verified C code generation',
     summary:
@@ -213,25 +210,25 @@ export const projects: Project[] = [
   },
   {
     slug: 'arduino-can-cruise-control',
-    title: 'Embedded cruise control on Arduino over CAN',
+    title: 'Digital cruise controller over an emulated vehicle bus',
     summary:
-      'A PID cruise controller simulated in MATLAB with bit-encoded bus signals, alongside Simulink models that send and receive CAN frames on an Arduino Uno through an MCP2515 controller.',
-    year: '2026',
+      'A PID cruise controller written for a lab-provided MATLAB simulation where speed, demand and control travel as 10-bit bus words, plus lab-supplied Simulink models for CAN messaging on an Arduino Uno.',
+    year: '2025',
     category: 'Coursework',
     context: 'Coursework, Embedded Systems',
-    role: 'Sole author',
-    tools: ['Simulink', 'Embedded Coder', 'Arduino', 'MCP2515'],
+    role: 'Individual coursework',
+    tools: ['MATLAB', 'Simulink', 'Arduino', 'CAN'],
     featured: false,
     images: [],
     overview:
-      "Embedded Systems coursework on digital control and CAN communication. The cruise controller runs in the lab's MATLAB simulation, where speed, driver demand and throttle and brake signals are fixed-width binary words, as they would be on a communication bus. Separate Simulink models target an Arduino Uno through Embedded Coder and use an MCP2515 library to read an analog input, send and receive CAN frames and drive a motor with PWM and direction outputs.",
+      "Embedded Systems coursework on digital control and CAN communication. The cruise controller runs in the lab-provided MATLAB simulation, where speed, driver demand and throttle and brake signals are fixed-width binary words, as they would be on a communication bus. Lab-supplied Simulink models target an Arduino Uno through Embedded Coder and use an MCP2515 library to read an analog input, send and receive CAN frames and drive a motor with PWM and direction outputs.",
     contributions: [
       'Wrote the PID cruise controller: integrator pre-loaded to the roughly 50 % throttle that holds the initial 60 mph, integral clamped against windup, output saturated to the -100 to 100 % throttle and brake range.',
       'Wrote the decode and encode steps for the emulated bus: demand (30-110 mph) and speed (0-150 mph) read from 10-bit words, control written back as a 10-bit word with rounding and a top-of-range clamp.',
-      'Worked with three Simulink models set up for an Arduino Uno (Embedded Coder, C, 10 ms fixed step) around an MCP2515 CAN library: analog input, CAN transmit and receive, and motor PWM and direction outputs.',
+      'Ran the three lab-supplied Simulink models for an Arduino Uno (Embedded Coder, C, 10 ms fixed step) around an MCP2515 CAN library: analog input, CAN transmit and receive, and motor PWM and direction outputs.',
     ],
     result:
-      'A cruise-control loop in MATLAB that operates on bit-encoded bus signals, and Simulink models for CAN messaging on an Arduino Uno through an MCP2515.',
+      'A cruise-control loop that operates on bit-encoded bus signals inside a lab-provided simulation, plus hands-on CAN messaging on an Arduino Uno through an MCP2515.',
     links: [],
   },
 ];

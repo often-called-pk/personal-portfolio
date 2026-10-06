@@ -44,7 +44,7 @@ it('8 roles, 2 bullets each', () => {
 // Spec 7.5 deny-list (confidential and unclaimed terms) is kept out of the public repo:
 // tests/denylist.local.txt holds one regex source, git-ignored. Skipped where the file is absent (CI, Vercel).
 const denyFile = 'tests/denylist.local.txt';
-it.skipIf(!existsSync(denyFile))('no confidential or unclaimed terms in content', () => {
+it.skipIf(!existsSync(denyFile) && Boolean(process.env.CI || process.env.VERCEL))('no confidential or unclaimed terms in content', () => {
   const DENY = new RegExp(readFileSync(denyFile, 'utf8').trim(), 'i');
   expect(all.match(DENY)?.[0], 'denied term in content').toBeUndefined();
 });

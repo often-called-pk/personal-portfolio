@@ -15,7 +15,7 @@ export function Projects() {
         <h2 className="text-2xl font-bold md:text-3xl">{ui.projectsTitle}</h2>
         <div className="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-2 lg:grid-rows-2">
           {bento.map((p, i) => (
-            <ProjectCard key={p.slug} project={p} image tall={i === 0} highPriority={i === 0} />
+            <ProjectCard key={p.slug} project={p} image tall={i === 0} />
           ))}
         </div>
       </Reveal>

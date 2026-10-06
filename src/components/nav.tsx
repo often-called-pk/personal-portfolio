@@ -63,7 +63,7 @@ export function Nav() {
           <a
             href="/cv.pdf"
             download={ui.cvFilename}
-            className="inline-flex h-11 items-center whitespace-nowrap rounded bg-accent px-3 font-mono text-sm font-medium text-on-accent transition-[background-color] hover:bg-accent/90 motion-safe:active:scale-[0.98] sm:px-4"
+            className="inline-flex h-11 items-center whitespace-nowrap rounded bg-accent px-3 font-mono text-sm font-medium text-on-accent transition-[background-color] hover:bg-accent-hover motion-safe:active:scale-[0.98] sm:px-4"
           >
             {ui.cv}
           </a>

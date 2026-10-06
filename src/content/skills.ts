@@ -9,7 +9,7 @@ export const skills: SkillGroup[] = [
       'aero maps',
       'IPG CarMaker',
       'model-to-measurement correlation',
-      'LQR/LQG',
+      'LQR/LQG (coursework)',
       'dSPACE HIL (lab)',
     ],
   },
@@ -48,7 +48,7 @@ export const skills: SkillGroup[] = [
     items: [
       'wiring harness',
       'sensor integration',
-      'KiCad',
+      'KiCad (electronics CAD)',
       'corner weights',
       'alignment',
       'ride heights',

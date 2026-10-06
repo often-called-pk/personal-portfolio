@@ -23,7 +23,7 @@ export function Hero() {
         <StaggerItem className="mt-6 flex flex-wrap gap-3 md:mt-8">
           <a
             href="#projects"
-            className="inline-flex h-12 items-center rounded bg-accent px-6 font-mono text-sm font-medium text-on-accent transition-[background-color] hover:bg-accent/90 motion-safe:active:scale-[0.98]"
+            className="inline-flex h-12 items-center rounded bg-accent px-6 font-mono text-sm font-medium text-on-accent transition-[background-color] hover:bg-accent-hover motion-safe:active:scale-[0.98]"
           >
             {ui.viewProjects}
           </a>

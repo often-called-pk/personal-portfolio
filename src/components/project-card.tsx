@@ -14,22 +14,22 @@ export function ProjectCard({
   project,
   image = false,
   tall = false,
-  highPriority = false,
   heading: Heading = 'h3',
   className,
 }: {
   project: Project;
   image?: boolean;
   tall?: boolean;
-  highPriority?: boolean;
   heading?: 'h3' | 'h4';
   className?: string;
 }) {
   const cover = image ? project.cover : undefined;
   const copy = tall ? 'text-base' : 'text-sm';
+  const titleId = `${project.slug}-title`;
   return (
     <Link
       href={`/projects/${project.slug}`}
+      aria-labelledby={titleId}
       className={`group flex flex-col overflow-hidden rounded border border-line bg-card transition-[translate,scale,border-color] duration-200 hover:border-accent motion-safe:hover:-translate-y-[2px] motion-safe:active:scale-[0.98]${tall ? ' lg:row-span-2' : ''}${className ? ` ${className}` : ''}`}
     >
       {cover ? (
@@ -39,21 +39,14 @@ export function ProjectCard({
         <div
           className={`relative border-b border-line bg-bg ${tall ? 'aspect-[6/5] max-h-[26rem] lg:aspect-auto lg:max-h-none lg:min-h-80 lg:flex-1' : 'aspect-video lg:aspect-[2/1]'}`}
         >
-          {/* The bento sits below the fold, so no preload: a head preload would compete with
-              the hero LCP image. fetchPriority only raises it once the browser fetches it. */}
-          <Image
-            src={cover}
-            alt=""
-            fill
-            sizes={SIZES}
-            fetchPriority={highPriority ? 'high' : undefined}
-            className="object-contain p-3"
-          />
+          {/* The bento sits below the fold: default lazy loading, nothing competes with the hero LCP image. */}
+          <Image src={cover} alt="" fill sizes={SIZES} className="object-contain p-3" />
         </div>
       ) : null}
       <div className={`flex flex-col p-5 ${tall ? 'md:p-8' : 'md:p-6'}${tall && cover ? '' : ' flex-1'}`}>
         <p className="font-mono text-xs text-accent">{project.category}</p>
         <Heading
+          id={titleId}
           className={`mt-2 min-w-0 break-words font-bold leading-snug ${tall ? 'text-xl md:text-3xl' : 'text-lg'}`}
         >
           {project.title}
