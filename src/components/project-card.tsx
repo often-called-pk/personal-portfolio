@@ -38,7 +38,7 @@ export function ProjectCard({
         <div
           className={`relative border-b border-line bg-bg ${tall ? 'aspect-[6/5] max-h-[26rem] lg:aspect-auto lg:max-h-none lg:min-h-80 lg:flex-1' : 'aspect-video lg:aspect-[2/1]'}`}
         >
-          {/* The bento sits below the fold: default lazy loading, nothing competes with the hero h1 (the LCP element). */}
+          {/* The bento sits below the fold: default lazy loading, nothing competes with the static hero text (the LCP element). */}
           <Image src={cover} alt="" fill sizes={SIZES} className="object-contain p-3" />
         </div>
       ) : null}

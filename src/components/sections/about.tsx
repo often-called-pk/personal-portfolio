@@ -28,8 +28,8 @@ export function About() {
             </div>
           </div>
           <div className="min-w-0 lg:col-span-5">
-            {/* Below the fold: default lazy loading, so the hero h1 stays the LCP element. */}
-            <div className="relative aspect-[4/5] w-full max-w-sm overflow-hidden rounded border border-line lg:ml-auto">
+            {/* Below the fold: default lazy loading, so static hero text stays the LCP element. */}
+            <div className="relative aspect-[4/5] w-full max-w-sm overflow-hidden rounded border border-line">
               <Image
                 src={profile.photo.src}
                 alt={profile.photo.alt}

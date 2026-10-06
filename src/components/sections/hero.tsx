@@ -10,15 +10,11 @@ export function Hero() {
             {profile.eyebrow}
           </p>
         </StaggerItem>
-        {/* Outside StaggerItem on purpose: the h1 is the LCP element and never starts at opacity 0.
-            Full container width: the 2-line split needs 13.93em, so it holds 2 lines from md up
-            (72px in the 1088px column at xl); phones keep 30px over 3 lines (10.12em split). */}
+        {/* The h1 and the sub sit outside StaggerItem on purpose: they are the LCP candidates (the sub is the larger text block on most phones), so neither starts at opacity 0. Full container width: the 2-line split needs 13.93em, so the h1 holds 2 lines from md up (72px in the 1088px column at xl); phones keep 30px over 3 lines (10.12em split). */}
         <h1 className="mt-4 text-balance text-3xl font-extrabold leading-[0.95] tracking-[-0.04em] md:mt-6 md:text-5xl lg:text-6xl xl:text-7xl">
           {profile.headline}
         </h1>
-        <StaggerItem>
-          <p className="mt-6 max-w-[52ch] text-pretty text-lg text-muted md:mt-8 md:text-xl">{profile.sub}</p>
-        </StaggerItem>
+        <p className="mt-6 max-w-[52ch] text-pretty text-lg text-muted md:mt-8 md:text-xl">{profile.sub}</p>
         <StaggerItem className="mt-8 flex flex-wrap gap-3 md:mt-10">
           <a
             href="#projects"
