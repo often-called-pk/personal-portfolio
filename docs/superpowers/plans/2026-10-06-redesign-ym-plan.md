@@ -7,6 +7,7 @@
 **Stack:** Next.js 16.3 App Router, React 19.2, TS strict, Tailwind v4 (`@tailwindcss/postcss`, tokens in `src/app/globals.css`), `motion` 14 (`motion/react`), `@phosphor-icons/react`, vitest. npm.
 **Workdir:** `D:\personal-portfolio\.claude\worktrees\portfolio-build`, branch `redesign-ym`. Never push, never touch `main`.
 **Roles:** Opus orchestrates and verifies. Builders and reviewers are Sonnet subagents.
+**As built:** controller rulings changed some task code below (nav phone padding and `/90`, About card placement, P1 label, `break-words`, `role="list"`, static hero sub, detail-page hover). Spec section 13 describes the shipped result.
 
 ## Global Constraints
 

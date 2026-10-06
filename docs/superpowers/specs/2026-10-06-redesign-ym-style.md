@@ -11,7 +11,7 @@ Branch `redesign-ym` from main 5aa14ff. Evidence: 42 section screenshots + `comp
 - Surfaces: raised "stages" radius 42-46 px holding cards radius 26-30 px, gradient fills, radial glows, layered shadows, pill buttons, cards tilted 0.5-2 deg.
 - Subpages switch language: `projects.html` comic book (Bangers, red/blue/yellow halftone), `work-experience.html` Swiss dossier (Barlow Condensed, lime/blue). Three looks, one site.
 - Owner read "dark minimal technical" does not match. Text read also off: 4 stat cards, not 3; Work and Project are separate pages; "LOOP" is music loop/shuffle; nav links hidden below 900 px, no menu.
-- Reference owner also claims the UTAC 2026 Paris win for Cranfield. Likely same team, same recruiter pool: a near-clone reads as copied.
+- Differentiation: a near-clone of another engineer's portfolio would read as copied.
 - Proposal: keep Pit Wall identity (tokens, Archivo + JetBrains Mono, 4 px, dark default). Borrow composition, rhythm, scale contrast, motion vocabulary. Q1 confirms.
 
 ## 2. Design read
@@ -90,13 +90,13 @@ Stage (written `{stage}` below) = `rounded border border-line bg-card p-6 md:p-1
 ### 6.2 Hero `src/components/sections/hero.tsx`
 - One column: `mx-auto max-w-6xl px-4 pb-10 pt-10 md:px-8 md:pb-16 md:pt-20`. Drop grid, photo, `next/image` import (photo moves to About).
 - h1 per section 5, `mt-4 md:mt-6`, static (LCP text, never opacity 0). 2-line split needs 13.93em: fits from md (1088 px column at 72 px = 1003 px). Phones keep 30 px, 3 lines.
-- Sub: lead class, `mt-6 md:mt-8`. CTAs unchanged, `mt-8 md:mt-10`. Hero keeps 4 text elements.
+- Sub: lead class, `mt-6 md:mt-8`, static like the h1 (it is the larger text block, so the LCP element, on most phones). CTAs unchanged, `mt-8 md:mt-10`. Hero keeps 4 text elements.
 - Manifesto-type hero: stat cards are the first-viewport visual. Taste 4.8 wants a real image: later image band, Q2.
 - If Q2 = keep photo: skip all but sub + spacing; h1 stays `xl:text-5xl`; About renders no photo.
 
 ### 6.3 Metrics `src/components/sections/metrics.tsx`
-- `<Stagger inView className="mx-auto max-w-6xl px-4 md:px-8">` around `<ul className="grid grid-cols-3 gap-2 sm:gap-4">`; each `<li>` content in `<StaggerItem>`.
-- li: `rounded border p-3 sm:p-6 lg:p-8`, plus i = 0 `border-accent bg-accent text-on-accent`, else `border-line bg-card`.
+- `<Stagger inView className="mx-auto max-w-6xl px-4 md:px-8">` around `<ul className="grid grid-cols-3 gap-2 sm:gap-4">`; each `<li className="min-w-0">` holds a `<StaggerItem>` that is the card.
+- Card (on the StaggerItem, so the whole card moves): `h-full rounded border p-3 sm:p-6 lg:p-8`, plus i = 0 `border-accent bg-accent text-on-accent`, else `border-line bg-card`.
 - Value: stat class + `<CountUp>`. Label: `mt-3 break-words font-mono text-xs leading-snug sm:mt-6 sm:text-sm`, plus i = 0 `text-on-accent`, else `text-muted`.
 - Three columns at every width (base-spec phone fold rule stays).
 
@@ -118,7 +118,7 @@ Stage (written `{stage}` below) = `rounded border border-line bg-card p-6 md:p-1
 
 ### 6.6 Projects `projects.tsx`, `project-card.tsx`
 - h2 scale; "More projects" h3 `text-xl md:text-2xl font-bold`.
-- Both grids become `<Stagger inView className="{current grid classes}">`; each card sits in a `<StaggerItem>` carrying its span (`lg:row-span-2` first bento cell; `lg:col-span-2` / `lg:col-span-3` in the more grid). ProjectCard drops `lg:row-span-2`, adds `h-full`.
+- Both grids become `<Stagger inView className="{current grid classes}">`; each card sits in a `<StaggerItem>` carrying its span (`lg:row-span-2` first bento cell; `lg:col-span-2` / `lg:col-span-3` in the more grid). ProjectCard drops `lg:row-span-2` and its now unused `className` prop, adds `h-full`.
 - ProjectCard hover: `duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] motion-safe:hover:-translate-y-1` (was 2 px, 200 ms). Tall title `text-2xl md:text-4xl font-extrabold tracking-[-0.03em]`.
 
 ### 6.7 Experience, skills, education, achievements, hobbies
@@ -151,13 +151,14 @@ Wrapper + h2 class only. Layouts stay: already distinct families.
 | `src/components/sections/projects.tsx`, `src/components/project-card.tsx` | stagger, hover, scale |
 | `src/components/sections/{experience,skills,education,achievements,hobbies}.tsx` | wrapper + h2 |
 | `src/components/sections/contact.tsx` | stage, closing h2 |
+| `src/app/projects/[slug]/page.tsx` | prev / next hover matches the cards |
 | `src/components/motion/stagger.tsx`, `reveal.tsx` | `inView`; y, duration |
 | `src/content/method.ts`, `types.ts`, `profile.ts` | steps, `MethodStep`, `methodTitle`, `nowLabel` |
 | `tests/content.test.ts` | method length 4, method in dash check |
 
 ## 9. Untouched
 
-Token values, fonts, all existing copy except `ui.nowLabel`, routes, anchors, `src/app/projects/[slug]/page.tsx` (inherits nav only), `layout.tsx`, `not-found.tsx`, `opengraph-image.tsx`, `icon.tsx`, `email.tsx`, `count-up.tsx`, `next.config.ts`, `public/`, cv.pdf, base 7.5 confidentiality, dual theme via `prefers-color-scheme`, no theme toggle.
+Token values, fonts, all existing copy except `ui.nowLabel`, routes, anchors, detail page layout (only its prev / next hover changed), `layout.tsx`, `not-found.tsx`, `opengraph-image.tsx`, `icon.tsx`, `email.tsx`, `count-up.tsx`, `next.config.ts`, `public/`, cv.pdf, base 7.5 confidentiality, dual theme via `prefers-color-scheme`, no theme toggle.
 
 ## 10. Reference does X, we do not
 
@@ -187,7 +188,7 @@ Gates unchanged: `npm run lint`, `npm test`, `npm run build` zero errors; Lighth
 New checks (headless captures at 390x844 and 1440x900, dark and light):
 1. h1 = 2 lines from 768 px, 3 lines at 390 and 375.
 2. Stat cards fully above the fold: bottom < 900 px at 1440x900, < 844 px at 390x844.
-3. Lighthouse LCP element = hero h1.
+3. LCP element = static hero text (h1, or the sub on most phones), painted at first paint. Phones about 880 px tall and up may pick the About paragraph after hydration (accepted).
 4. Nav one line at 1024, bar 56 px, header 68 px; sheet opens under the bar, Escape closes, focus returns to toggle.
 5. `grep -rE "gradient|shadow-|rounded-(sm|md|lg|xl|2xl|3xl|full)" src` = 0 hits.
 6. One accent-filled surface on `/` (P1 card) besides buttons.
@@ -209,4 +210,5 @@ New checks (headless captures at 390x844 and 1440x900, dark and light):
 - About cards under the copy, portrait alone on the right (empty band at lg, mismatched widths at 768).
 - P1 label full `text-on-accent` (3.9:1 in light at /80); stat labels `break-words` (overflow at 320 px).
 - Method `ol role="list"` (Safari list semantics). Detail page hover matches the cards (4 px, 300 ms).
+- Hero sub static (LCP on most phones; it was JS-gated). Stat card classes on the StaggerItem; ProjectCard `className` prop removed.
 - Accepted: 4 h1 lines and a wrapped name at 320 px only.
