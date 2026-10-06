@@ -9,19 +9,18 @@ const SIZES =
   '(min-width:1152px) 536px, (min-width:1024px) calc((100vw - 5rem) / 2), (min-width:768px) calc(100vw - 4rem), calc(100vw - 2rem)';
 
 // Whole card is the link, so nothing inside it is interactive. Only translate, scale and
-// border-color transition: listing outline-color would fade the focus ring in.
+// border-color transition: listing outline-color would fade the focus ring in. The grid cell
+// (a StaggerItem in projects.tsx) carries any span; h-full lets the card fill it.
 export function ProjectCard({
   project,
   image = false,
   tall = false,
   heading: Heading = 'h3',
-  className,
 }: {
   project: Project;
   image?: boolean;
   tall?: boolean;
   heading?: 'h3' | 'h4';
-  className?: string;
 }) {
   const cover = image ? project.cover : undefined;
   const copy = tall ? 'text-base' : 'text-sm';
@@ -30,7 +29,7 @@ export function ProjectCard({
     <Link
       href={`/projects/${project.slug}`}
       aria-labelledby={titleId}
-      className={`group flex flex-col overflow-hidden rounded border border-line bg-card transition-[translate,scale,border-color] duration-200 hover:border-accent motion-safe:hover:-translate-y-[2px] motion-safe:active:scale-[0.98]${tall ? ' lg:row-span-2' : ''}${className ? ` ${className}` : ''}`}
+      className="group flex h-full flex-col overflow-hidden rounded border border-line bg-card transition-[translate,scale,border-color] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-accent motion-safe:hover:-translate-y-1 motion-safe:active:scale-[0.98]"
     >
       {cover ? (
         // The covers are axis-labelled plots and a dashboard: contain, never crop. The tall card
@@ -39,7 +38,7 @@ export function ProjectCard({
         <div
           className={`relative border-b border-line bg-bg ${tall ? 'aspect-[6/5] max-h-[26rem] lg:aspect-auto lg:max-h-none lg:min-h-80 lg:flex-1' : 'aspect-video lg:aspect-[2/1]'}`}
         >
-          {/* The bento sits below the fold: default lazy loading, nothing competes with the hero LCP image. */}
+          {/* The bento sits below the fold: default lazy loading, nothing competes with the hero h1 (the LCP element). */}
           <Image src={cover} alt="" fill sizes={SIZES} className="object-contain p-3" />
         </div>
       ) : null}
@@ -47,7 +46,7 @@ export function ProjectCard({
         <p className="font-mono text-xs text-accent">{project.category}</p>
         <Heading
           id={titleId}
-          className={`mt-2 min-w-0 break-words font-bold leading-snug ${tall ? 'text-xl md:text-3xl' : 'text-lg'}`}
+          className={`mt-2 min-w-0 break-words ${tall ? 'text-2xl font-extrabold leading-tight tracking-[-0.03em] md:text-4xl' : 'text-lg font-bold leading-snug'}`}
         >
           {project.title}
         </Heading>
