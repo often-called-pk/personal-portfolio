@@ -42,4 +42,7 @@ export const ui = {
   getInTouch: 'Get in touch',
   copyEmail: 'Copy email address',
   emailCopied: 'Email address copied',
+  menu: 'Menu',
+  aboutTitle: 'About',
+  nowLabel: 'Now:',
 };

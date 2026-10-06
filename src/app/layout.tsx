@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Archivo, JetBrains_Mono } from "next/font/google";
+import { Nav } from "@/components/nav";
 import { profile } from "@/content/profile";
 import "./globals.css";
 
@@ -31,7 +32,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       data-scroll-behavior="smooth"
       className={`${archivo.variable} ${jetbrains.variable}`}
     >
-      <body className="font-sans antialiased">{children}</body>
+      <body className="font-sans antialiased">
+        <Nav />
+        {children}
+      </body>
     </html>
   );
 }
