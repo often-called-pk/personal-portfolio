@@ -1,4 +1,4 @@
-# Redesign spec: Pit Wall restaged toward the YM reference
+# Redesign spec: Pit Wall restaged toward the reference portfolio
 
 2026-10-06. Owner Prashant Kumar. Status: approved 2026-10-06 (section 12 all yes), built on `redesign-ym`; build rulings in section 13.
 Style: caveman + ponytail. Facts only. Base: `2026-10-05-portfolio-site-design.md`; every rule not named here stands.
@@ -6,12 +6,12 @@ Branch `redesign-ym` from main 5aa14ff. Evidence: 42 section screenshots + `comp
 
 ## 1. Audit finding that changes the brief
 
-- Reference (portfolio-ym-ten.vercel.app, captured 2026-10-06 at 1440x900 and 390x844) is light, not dark. Paper `#EFE9DD`, bands `#E7E0D1` / `#D8D0BF`, ink `#17130C`, muted `#5C5445`, line `#CFC7B5`, two accents (vermilion `#D8451F`, teal `#147A66`), dark bands `#17130C`. Zero `prefers-color-scheme` rules.
+- The reference portfolio (captured 2026-10-06 at 1440x900 and 390x844) is light, not dark. Paper `#EFE9DD`, bands `#E7E0D1` / `#D8D0BF`, ink `#17130C`, muted `#5C5445`, line `#CFC7B5`, two accents (vermilion `#D8451F`, teal `#147A66`), dark bands `#17130C`. Zero `prefers-color-scheme` rules.
 - Type: Newsreader serif display (h1 clamp 54-176 px, line-height 0.88), Space Grotesk body 15 px / 1.7, Space Mono labels 10-13 px uppercase, tracking 0.14-0.24em.
 - Surfaces: raised "stages" radius 42-46 px holding cards radius 26-30 px, gradient fills, radial glows, layered shadows, pill buttons, cards tilted 0.5-2 deg.
 - Subpages switch language: `projects.html` comic book (Bangers, red/blue/yellow halftone), `work-experience.html` Swiss dossier (Barlow Condensed, lime/blue). Three looks, one site.
 - Owner read "dark minimal technical" does not match. Text read also off: 4 stat cards, not 3; Work and Project are separate pages; "LOOP" is music loop/shuffle; nav links hidden below 900 px, no menu.
-- Differentiation: a near-clone of another engineer's portfolio would read as copied.
+- Differentiation: a near-clone of another portfolio would read as copied.
 - Proposal: keep Pit Wall identity (tokens, Archivo + JetBrains Mono, 4 px, dark default). Borrow composition, rhythm, scale contrast, motion vocabulary. Q1 confirms.
 
 ## 2. Design read
