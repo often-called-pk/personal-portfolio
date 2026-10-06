@@ -10,7 +10,7 @@ Not: blog, lead-gen, publication list.
 
 ## 2. Look
 
-Direction B "Pit Wall" (mock https://claude.ai/artifact/VHW5aVP6SpAPgNduNQnKWx). Refs: portfolio-ym-ten.vercel.app (dark minimal), portfolio.mariecheron.com (card anatomy, detail structure).
+Direction B "Pit Wall" (mock https://claude.ai/artifact/VHW5aVP6SpAPgNduNQnKWx). Refs: a dark minimal reference portfolio, portfolio.mariecheron.com (card anatomy, detail structure).
 Dials: variance 7, motion 6, density 5.
 
 Tokens (dark default / light via prefers-color-scheme):

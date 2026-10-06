@@ -47,7 +47,7 @@ function Adjacent({ project, label, next = false }: { project: Project; label: s
     <li>
       <Link
         href={`/projects/${project.slug}`}
-        className={`flex h-full flex-col rounded border border-line bg-card p-5 transition-[translate,scale,border-color] duration-200 hover:border-accent motion-safe:hover:-translate-y-[2px] motion-safe:active:scale-[0.98]${next ? ' md:text-right' : ''}`}
+        className={`flex h-full flex-col rounded border border-line bg-card p-5 transition-[translate,scale,border-color] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-accent motion-safe:hover:-translate-y-1 motion-safe:active:scale-[0.98]${next ? ' md:text-right' : ''}`}
       >
         <span className={`flex items-center gap-2 font-mono text-xs text-muted${next ? ' md:justify-end' : ''}`}>
           {next ? null : <ArrowLeftIcon size={16} aria-hidden="true" />}

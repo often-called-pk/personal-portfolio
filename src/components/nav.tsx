@@ -36,8 +36,9 @@ export function Nav() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-bg/90 backdrop-blur">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 md:px-8">
+    // Floating bar: the header is a transparent sticky strip and only the bar takes pointer events.
+    <header className="pointer-events-none sticky top-0 z-40 px-2 pt-3 sm:px-3 md:px-6">
+      <div className="pointer-events-auto relative mx-auto flex h-14 max-w-6xl items-center justify-between gap-3 rounded border border-line bg-bg/90 px-2 backdrop-blur sm:px-3 md:px-5">
         <Link
           href="/"
           onClick={() => setOpen(false)}
@@ -52,7 +53,7 @@ export function Nav() {
                 <li key={item.href}>
                   <a
                     href={item.href}
-                    className="font-mono text-sm text-muted transition-[color] hover:text-fg"
+                    className="inline-flex min-h-11 items-center font-mono text-sm text-muted transition-[color] hover:text-fg"
                   >
                     {item.label}
                   </a>
@@ -79,27 +80,27 @@ export function Nav() {
             {open ? <XIcon size={20} aria-hidden="true" /> : <ListIcon size={20} aria-hidden="true" />}
           </button>
         </div>
+        {/* Drops under the bar instead of pushing the page down. Opaque: backdrop-blur does not nest. */}
+        <nav
+          id="nav-sheet"
+          hidden={!open}
+          className="absolute inset-x-0 top-full mt-2 rounded border border-line bg-bg lg:hidden"
+        >
+          <ul className="px-4">
+            {ui.nav.map((item) => (
+              <li key={item.href} className="border-b border-line last:border-b-0">
+                <a
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className="flex min-h-12 items-center font-mono text-base"
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
-      {/* Overlays the page instead of pushing it down. Opaque: backdrop-blur does not nest. */}
-      <nav
-        id="nav-sheet"
-        hidden={!open}
-        className="absolute inset-x-0 top-full border-y border-line bg-bg lg:hidden"
-      >
-        <ul className="mx-auto max-w-6xl px-4 md:px-8">
-          {ui.nav.map((item) => (
-            <li key={item.href} className="border-b border-line last:border-b-0">
-              <a
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className="flex min-h-12 items-center font-mono text-base"
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
     </header>
   );
 }

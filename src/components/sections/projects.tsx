@@ -1,4 +1,5 @@
 import { Reveal } from '@/components/motion/reveal';
+import { Stagger, StaggerItem } from '@/components/motion/stagger';
 import { ProjectCard } from '@/components/project-card';
 import { ui } from '@/content/profile';
 import { projects } from '@/content/projects';
@@ -8,32 +9,34 @@ import { projects } from '@/content/projects';
 const bento = projects.slice(0, 3);
 const more = projects.slice(3);
 
+// Each StaggerItem is the grid cell, so it carries the span; the card inside fills it (h-full).
 export function Projects() {
   return (
-    <section id="projects" className="mx-auto max-w-6xl px-4 py-20 md:px-8">
+    <section id="projects" className="mx-auto max-w-6xl px-4 py-24 md:px-8 md:py-32">
       <Reveal>
-        <h2 className="text-2xl font-bold md:text-3xl">{ui.projectsTitle}</h2>
-        <div className="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-2 lg:grid-rows-2">
-          {bento.map((p, i) => (
-            <ProjectCard key={p.slug} project={p} image tall={i === 0} />
-          ))}
-        </div>
+        <h2 className="text-3xl font-extrabold leading-none tracking-[-0.03em] md:text-4xl lg:text-5xl">
+          {ui.projectsTitle}
+        </h2>
       </Reveal>
+      <Stagger inView className="mt-10 grid grid-cols-1 gap-4 md:mt-14 lg:grid-cols-2 lg:grid-rows-2">
+        {bento.map((p, i) => (
+          <StaggerItem key={p.slug} className={i === 0 ? 'lg:row-span-2' : undefined}>
+            <ProjectCard project={p} image tall={i === 0} />
+          </StaggerItem>
+        ))}
+      </Stagger>
       <Reveal className="mt-16">
-        <h3 className="text-xl font-bold">{ui.moreProjects}</h3>
-        {/* One column below lg. From lg a 6-column grid: the first three cards span 2 and the last
-            two span 3, so neither row has a hole and each row's cards share one height. */}
-        <div className="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-6">
-          {more.map((p, i) => (
-            <ProjectCard
-              key={p.slug}
-              project={p}
-              heading="h4"
-              className={i < 3 ? 'lg:col-span-2' : 'lg:col-span-3'}
-            />
-          ))}
-        </div>
+        <h3 className="text-xl font-bold md:text-2xl">{ui.moreProjects}</h3>
       </Reveal>
+      {/* One column below lg. From lg a 6-column grid: the first three cards span 2 and the last
+          two span 3, so neither row has a hole and each row's cards share one height. */}
+      <Stagger inView className="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-6">
+        {more.map((p, i) => (
+          <StaggerItem key={p.slug} className={i < 3 ? 'lg:col-span-2' : 'lg:col-span-3'}>
+            <ProjectCard project={p} heading="h4" />
+          </StaggerItem>
+        ))}
+      </Stagger>
     </section>
   );
 }

@@ -8,8 +8,9 @@ import { education } from '../src/content/education';
 import { skills } from '../src/content/skills';
 import { achievements } from '../src/content/achievements';
 import { hobbies } from '../src/content/hobbies';
+import { method } from '../src/content/method';
 
-const all = JSON.stringify({ profile, ui, projects, experience, education, skills, achievements, hobbies });
+const all = JSON.stringify({ profile, ui, projects, experience, education, skills, achievements, hobbies, method });
 
 it('no em or en dash in content', () => {
   for (const c of [0x2014, 0x2013]) expect(all.includes(String.fromCodePoint(c))).toBe(false);
@@ -40,6 +41,10 @@ it('every cover and image exists under public/ with exact case', () => {
 it('8 roles, 2 bullets each', () => {
   expect(experience).toHaveLength(8);
   for (const e of experience) expect(e.bullets, e.company).toHaveLength(2);
+});
+// The rail is 4 columns at lg and 2 x 2 at md: any other count leaves a hole.
+it('method rail has exactly 4 steps', () => {
+  expect(method).toHaveLength(4);
 });
 // Spec 7.5 deny-list (confidential and unclaimed terms) is kept out of the public repo:
 // tests/denylist.local.txt holds one regex source, git-ignored. Skipped where the file is absent (CI, Vercel).

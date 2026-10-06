@@ -33,7 +33,7 @@ export function Email() {
     <div className="flex items-center gap-3">
       <a
         href={`mailto:${profile.email}`}
-        className="min-w-0 break-all font-mono text-lg underline decoration-muted underline-offset-4 transition-[color,text-decoration-color] hover:text-accent hover:decoration-accent md:text-2xl"
+        className="min-w-0 break-all py-2 font-mono text-lg underline decoration-muted underline-offset-4 transition-[color,text-decoration-color] hover:text-accent hover:decoration-accent md:text-2xl"
       >
         {profile.email}
       </a>
