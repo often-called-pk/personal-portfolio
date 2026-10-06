@@ -192,7 +192,7 @@ export function StaggerItem({ children, className }: { children: ReactNode; clas
 ```ts
 import type { MethodStep } from './types';
 
-// How I work rail (redesign spec 6.5). Every clause restates existing content; owner fact-check pending.
+// How I work rail (redesign spec 6.5). Every clause restates existing content; owner approved the copy 2026-10-06.
 export const method: MethodStep[] = [
   {
     title: 'Measure the car',
