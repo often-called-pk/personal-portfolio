@@ -19,10 +19,10 @@ const icons: Record<string, Icon> = {
 
 export function Hobbies() {
   return (
-    <section className="mx-auto max-w-6xl px-4 py-20 md:px-8">
+    <section className="mx-auto max-w-6xl px-4 py-24 md:px-8 md:py-32">
       <Reveal>
-        <h2 className="text-2xl font-bold md:text-3xl">{ui.hobbiesTitle}</h2>
-        <ul className="mt-8 flex flex-wrap gap-8">
+        <h2 className="text-3xl font-extrabold leading-none tracking-[-0.03em] md:text-4xl lg:text-5xl">{ui.hobbiesTitle}</h2>
+        <ul className="mt-10 flex flex-wrap gap-8 md:mt-14">
           {hobbies.map((h) => {
             const HobbyIcon = icons[h.icon];
             return (

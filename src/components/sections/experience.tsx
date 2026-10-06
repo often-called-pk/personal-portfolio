@@ -7,10 +7,10 @@ const groups = ['motorsport', 'analytics'] as const;
 
 export function Experience() {
   return (
-    <section id="experience" className="mx-auto max-w-6xl px-4 py-20 md:px-8">
+    <section id="experience" className="mx-auto max-w-6xl px-4 py-24 md:px-8 md:py-32">
       <Reveal>
-        <h2 className="text-2xl font-bold md:text-3xl">{ui.experienceTitle}</h2>
-        <div className="mt-8 grid grid-cols-1 gap-12 lg:grid-cols-2">
+        <h2 className="text-3xl font-extrabold leading-none tracking-[-0.03em] md:text-4xl lg:text-5xl">{ui.experienceTitle}</h2>
+        <div className="mt-10 grid grid-cols-1 gap-12 md:mt-14 lg:grid-cols-2">
           {groups.map((group) => (
             <div key={group} className="min-w-0">
               <h3 className="text-xl font-bold">{ui.experienceGroups[group]}</h3>

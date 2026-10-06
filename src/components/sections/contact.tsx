@@ -9,11 +9,11 @@ const icons: Record<string, Icon> = { LinkedIn: LinkedinLogoIcon, GitHub: Github
 
 export function Contact() {
   return (
-    <section id="contact" className="mx-auto max-w-6xl px-4 py-20 md:px-8">
-      <Reveal>
-        <h2 className="text-2xl font-bold md:text-3xl">{ui.contactTitle}</h2>
+    <section id="contact" className="mx-auto max-w-6xl px-4 py-24 md:px-8 md:py-32">
+      <Reveal className="rounded border border-line bg-card p-6 md:p-10 lg:p-14">
+        <h2 className="text-balance text-4xl font-extrabold leading-[0.95] tracking-[-0.04em] md:text-6xl lg:text-7xl">{ui.contactTitle}</h2>
         {/* min-h-11 holds the row's height while Email renders nothing before hydration. */}
-        <div className="mt-8 min-h-11">
+        <div className="mt-10 min-h-11 md:mt-12">
           <Email />
         </div>
         <ul className="mt-8 flex flex-wrap gap-3">
