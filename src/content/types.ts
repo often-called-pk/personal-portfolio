@@ -19,3 +19,4 @@ export type Profile = {
   links: Link[]; about: string[]; now: string; metrics: { value: string; label: string }[];
   availability: string; photo: { src: string; alt: string };
 };
+export type MethodStep = { title: string; text: string };
