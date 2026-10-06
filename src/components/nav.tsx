@@ -37,8 +37,8 @@ export function Nav() {
 
   return (
     // Floating bar: the header is a transparent sticky strip and only the bar takes pointer events.
-    <header className="pointer-events-none sticky top-0 z-40 px-3 pt-3 md:px-6">
-      <div className="pointer-events-auto relative mx-auto flex h-14 max-w-6xl items-center justify-between gap-3 rounded border border-line bg-bg/80 px-3 backdrop-blur md:px-5">
+    <header className="pointer-events-none sticky top-0 z-40 px-2 pt-3 sm:px-3 md:px-6">
+      <div className="pointer-events-auto relative mx-auto flex h-14 max-w-6xl items-center justify-between gap-3 rounded border border-line bg-bg/80 px-2 backdrop-blur sm:px-3 md:px-5">
         <Link
           href="/"
           onClick={() => setOpen(false)}
